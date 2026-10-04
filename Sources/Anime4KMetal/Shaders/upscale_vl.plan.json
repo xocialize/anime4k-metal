@@ -1,0 +1,218 @@
+[
+ {
+  "kernel": "k00",
+  "binds": [
+   "MAIN"
+  ],
+  "save": "conv2d_tf",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x3"
+ },
+ {
+  "kernel": "k01",
+  "binds": [
+   "MAIN"
+  ],
+  "save": "conv2d_tf1",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x3"
+ },
+ {
+  "kernel": "k02",
+  "binds": [
+   "conv2d_tf",
+   "conv2d_tf1"
+  ],
+  "save": "conv2d_1_tf",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k03",
+  "binds": [
+   "conv2d_tf",
+   "conv2d_tf1"
+  ],
+  "save": "conv2d_1_tf1",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k04",
+  "binds": [
+   "conv2d_1_tf",
+   "conv2d_1_tf1"
+  ],
+  "save": "conv2d_2_tf",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k05",
+  "binds": [
+   "conv2d_1_tf",
+   "conv2d_1_tf1"
+  ],
+  "save": "conv2d_2_tf1",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k06",
+  "binds": [
+   "conv2d_2_tf",
+   "conv2d_2_tf1"
+  ],
+  "save": "conv2d_3_tf",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k07",
+  "binds": [
+   "conv2d_2_tf",
+   "conv2d_2_tf1"
+  ],
+  "save": "conv2d_3_tf1",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k08",
+  "binds": [
+   "conv2d_3_tf",
+   "conv2d_3_tf1"
+  ],
+  "save": "conv2d_4_tf",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k09",
+  "binds": [
+   "conv2d_3_tf",
+   "conv2d_3_tf1"
+  ],
+  "save": "conv2d_4_tf1",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k10",
+  "binds": [
+   "conv2d_4_tf",
+   "conv2d_4_tf1"
+  ],
+  "save": "conv2d_5_tf",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k11",
+  "binds": [
+   "conv2d_4_tf",
+   "conv2d_4_tf1"
+  ],
+  "save": "conv2d_5_tf1",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k12",
+  "binds": [
+   "conv2d_5_tf",
+   "conv2d_5_tf1"
+  ],
+  "save": "conv2d_6_tf",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k13",
+  "binds": [
+   "conv2d_5_tf",
+   "conv2d_5_tf1"
+  ],
+  "save": "conv2d_6_tf1",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x3x3x16"
+ },
+ {
+  "kernel": "k14",
+  "binds": [
+   "conv2d_tf",
+   "conv2d_tf1",
+   "conv2d_1_tf",
+   "conv2d_1_tf1",
+   "conv2d_2_tf",
+   "conv2d_2_tf1",
+   "conv2d_3_tf",
+   "conv2d_3_tf1",
+   "conv2d_4_tf",
+   "conv2d_4_tf1",
+   "conv2d_5_tf",
+   "conv2d_5_tf1",
+   "conv2d_6_tf",
+   "conv2d_6_tf1"
+  ],
+  "save": "conv2d_last_tf",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x1x1x112"
+ },
+ {
+  "kernel": "k15",
+  "binds": [
+   "conv2d_tf",
+   "conv2d_tf1",
+   "conv2d_1_tf",
+   "conv2d_1_tf1",
+   "conv2d_2_tf",
+   "conv2d_2_tf1",
+   "conv2d_3_tf",
+   "conv2d_3_tf1",
+   "conv2d_4_tf",
+   "conv2d_4_tf1",
+   "conv2d_5_tf",
+   "conv2d_5_tf1",
+   "conv2d_6_tf",
+   "conv2d_6_tf1"
+  ],
+  "save": "conv2d_last_tf1",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x1x1x112"
+ },
+ {
+  "kernel": "k16",
+  "binds": [
+   "conv2d_tf",
+   "conv2d_tf1",
+   "conv2d_1_tf",
+   "conv2d_1_tf1",
+   "conv2d_2_tf",
+   "conv2d_2_tf1",
+   "conv2d_3_tf",
+   "conv2d_3_tf1",
+   "conv2d_4_tf",
+   "conv2d_4_tf1",
+   "conv2d_5_tf",
+   "conv2d_5_tf1",
+   "conv2d_6_tf",
+   "conv2d_6_tf1"
+  ],
+  "save": "conv2d_last_tf2",
+  "scale": 1,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Conv-4x1x1x112"
+ },
+ {
+  "kernel": "k17",
+  "binds": [
+   "MAIN",
+   "conv2d_last_tf",
+   "conv2d_last_tf1",
+   "conv2d_last_tf2"
+  ],
+  "save": "MAIN",
+  "scale": 2,
+  "desc": "Anime4K-v3.2-Upscale-CNN-x2-(VL)-Depth-to-Space"
+ }
+]

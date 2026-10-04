@@ -1,0 +1,9 @@
+.build/
+.swiftpm/
+Package.resolved
+Generator/glsl/
+*.mp4
+*.mov
+*.png
+*.f32
+.DS_Store
