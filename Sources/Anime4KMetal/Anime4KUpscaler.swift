@@ -17,8 +17,12 @@
 //   does with MAIN: display-referred, not linearised). Other colour models are drawn into sRGB first. Values above
 //   1.0 (extended-range or HDR floats) are clamped on entry; HDR is outside this package's remit.
 //
-// The result is meant for drawings, line art and graphics: Anime4K is trained on anime, and photographs come out
-// looking drawn.
+// The default mode is `.upscaleVL`, not the video player's mode B. Measured on the G-4 drawn set at ×2
+// (mlxengine-forge/Tools/anime4k-image/20261015, AB-T-0291): upscale-only VL beats Lanczos on every image of every
+// class and keeps text as legible as Lanczos does, and on photos it is no worse than Lanczos. Mode B's restore pass
+// costs ~12 SSIMULACRA2 on clean sources, corrupts 3.6× the words and makes photos look drawn; it wins only on
+// heavily compressed input (JPEG q30), which is what it was made for. Neither mode reaches the learned upscalers
+// (HEART, NERVE, RealPLKSR) on drawn content: this is the instant, model-free tier, not the best one.
 
 import CoreGraphics
 import Foundation
@@ -49,7 +53,7 @@ public final class Anime4KUpscaler: @unchecked Sendable {
         /// the end of every call and only the compiled pipelines stay.
         public var retainsTextures: Bool
 
-        public init(mode: Anime4KMode = .b, precision: Precision = .automatic, maxTileSide: Int = 1024,
+        public init(mode: Anime4KMode = .upscaleVL, precision: Precision = .automatic, maxTileSide: Int = 1024,
                     tileMargin: Int = 48, bleedRadius: Int = 16, retainsTextures: Bool = false) {
             self.mode = mode
             self.precision = precision

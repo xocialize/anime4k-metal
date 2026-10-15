@@ -8,3 +8,4 @@ Generator/glsl/
 *.f32
 .DS_Store
 !Tests/Anime4KMetalTests/Fixtures/*.png
+Validation/__pycache__/
