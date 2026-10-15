@@ -49,6 +49,11 @@ swift build -c release
   58.4 / 32.8 / 63.9 / 34.9), deblocking 3–14×. Those cells reward faithfulness; the playback-scale eyeball is the
   open test.
 
+## Licence
+
+MIT (`LICENSE`) for the generator, runtime, CLI and validation code. The generated shaders in
+`Sources/Anime4KMetal/Shaders/` derive from bloc97/Anime4K's GLSL, MIT, reproduced in `NOTICE`.
+
 ## Open
 
 1. The operator's playback-scale eyeball (`video --compare`) on real anime, especially low-bitrate SD and 720p
