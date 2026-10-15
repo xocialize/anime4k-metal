@@ -7,3 +7,4 @@ Generator/glsl/
 *.png
 *.f32
 .DS_Store
+!Tests/Anime4KMetalTests/Fixtures/*.png

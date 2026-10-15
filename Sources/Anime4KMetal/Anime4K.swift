@@ -24,6 +24,10 @@ public enum Anime4KMode: String, CaseIterable, Sendable {
 
 public enum Anime4KError: Error, CustomStringConvertible {
     case noDevice, missingResource(String), compile(String), unbound(String), pixelBuffer(String)
+    /// An image the upscaler cannot take (its size, or a bitmap CoreGraphics cannot draw into RGBA).
+    case unsupportedImage(String)
+    /// The GPU reported an error while running the chain.
+    case gpu(String)
     public var description: String {
         switch self {
         case .noDevice: return "no Metal device"
@@ -31,6 +35,8 @@ public enum Anime4KError: Error, CustomStringConvertible {
         case .compile(let e): return "MSL compile failed: \(e)"
         case .unbound(let t): return "pass reads unbound texture \(t)"
         case .pixelBuffer(let e): return "pixel buffer: \(e)"
+        case .unsupportedImage(let e): return "unsupported image: \(e)"
+        case .gpu(let e): return "GPU: \(e)"
         }
     }
 }
@@ -80,6 +86,27 @@ public final class Anime4K {
     }
 
     public var passCount: Int { passes.count }
+
+    /// Bytes of intermediate textures one `encode` of a `width`×`height` input allocates (each pass keeps its own
+    /// output, because the last passes read every earlier layer). Exact, from the plan.
+    public func workingSetBytes(width: Int, height: Int) -> Int {
+        var size: [String: (Int, Int)] = ["MAIN": (width, height)]
+        var total = 0
+        let texel = halfPrecision ? 8 : 16
+        for p in passes {
+            let base = size[p.binds.last ?? "MAIN"] ?? (width, height)
+            let out = (base.0 * p.scale, base.1 * p.scale)
+            total += out.0 * out.1 * texel
+            size[p.save] = out
+        }
+        return total
+    }
+
+    /// Releases the pooled intermediate textures; the compiled pipelines stay.
+    public func purgeTextures() { pool.removeAll() }
+
+    /// The pool's texture size, so a caller changing size can purge first instead of growing the pool.
+    var pooledInputSize: (Int, Int)?
 
     func pooled(_ key: String, _ w: Int, _ h: Int) -> MTLTexture {
         let k = "\(key)@\(w)x\(h)"
